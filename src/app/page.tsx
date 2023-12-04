@@ -26,8 +26,8 @@ export default function Home() {
     }
   };
   return (
-    <div className='w-full'></div>
-    
-    <Button onClick={() => getUserDetails(false)}>Button</Button>
+    <div className='w-full h-full h-screen bg-gray-700'>
+      <Button onClick={() => getUserDetails(false)}>Button</Button>
+    </div>
   )
 }

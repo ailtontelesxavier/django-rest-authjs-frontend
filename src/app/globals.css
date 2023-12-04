@@ -5,5 +5,5 @@
 html,
 body,
 #__next{
-    @apply flex flex-col
+    @apply flex flex-col h-screen;
 }
