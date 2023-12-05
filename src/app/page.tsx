@@ -34,13 +34,10 @@ export default function Home() {
     }
   };
   return (
-<<<<<<< HEAD
-    <div className='w-full h-full h-screen flex justify-center items-center bg-gray-700'>
-=======
-    <div className='w-full h-full h-screen bg-cover bg-no-repeat bg-bottom' style={{
+
+    <div className='w-full h-full h-screen bg-cover bg-no-repeat' style={{
       backgroundImage: `url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')`,
     }}>
->>>>>>> deeee3b (update)
       <Button onClick={() => getUserDetails(false)}>Button</Button>
 
       <div className='relative z-10'>
