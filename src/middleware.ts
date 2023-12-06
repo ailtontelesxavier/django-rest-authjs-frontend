@@ -1,14 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-
-
 export default function middleware(request: NextRequest) {
 
-    console.log('----------');
-    console.log(request.cookies.get('next-auth.session-token'));
-    console.log('----------');
+    //console.log(request.cookies.get('next-auth.session-token'));
 
     //const token = request.cookies.get('auth_token')?.value;
     const token = request.cookies.get('next-auth.session-token')?.value;

@@ -2,12 +2,10 @@
 //'use server'
 
 import { Button, Input } from "@material-tailwind/react";
-import {SessionProvider, signIn, signOut, useSession} from "next-auth/react";
+import {SessionProvider, signIn, useSession} from "next-auth/react";
 
-import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server"
 import { useRouter } from "next/navigation";
-//import handleLogin from "@/functions/handleAuth";
+
 
 import { useState } from "react";
 import axios from "axios";
@@ -15,31 +13,8 @@ import SignInButton from "@/components/SignInButton";
 
 export default function Home() {
   const router = useRouter();
-  //const {data: session, status} = useSession();
 
   const [response, setResponse] = useState("{}");
-
-  const getUserDetails = async (useToken: boolean) => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: process.env.NEXT_PUBLIC_BACKEND_URL + "auth/login/",
-        data: {
-          username: "user1",
-          password: "complexpassword123",
-        },
-        //headers: useToken ? {Authorization: "Bearer " + session?.access_token} : {},
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(JSON.stringify(response.data));
-      setResponse(JSON.stringify(response.data));
-    } catch (error) {
-      setResponse(error.message);
-    }
-    
-  };
 
   function handleLogin() {
 
