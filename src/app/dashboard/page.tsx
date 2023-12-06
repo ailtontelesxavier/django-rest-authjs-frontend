@@ -1,13 +1,13 @@
-//"use client";
+"use client";
 
-import { cookies } from "next/headers";
-import { useRouter } from "next/navigation";
+import { Button, Input } from "@material-tailwind/react";
+import { signOut } from "next-auth/react";
+
 
 export default function Home() {
-  const router = useRouter();
+
   function handleLogout() {
-    cookies().delete('auth_token')
-    router.push("/");
+
   }
   return (
     <div className="flex w-full h-screen justify-center items-center flex-col gap-3">
@@ -21,7 +21,7 @@ export default function Home() {
           </div>
         </form>
       </div>
-      <Button className="bg-green-200" onClick={handleLogout}>
+      <Button className="bg-green-200" onClick={() => signOut("credentials")}>
         Logout
       </Button>
     </div>
