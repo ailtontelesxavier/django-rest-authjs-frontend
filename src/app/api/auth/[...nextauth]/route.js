@@ -85,7 +85,13 @@ export const authOptions = {
     async session({token}) {
       return token;
     },
+  },
+  pages: {
+    signIn: "/signin",
   }
 };
 
-export default NextAuth(authOptions);
+//export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };

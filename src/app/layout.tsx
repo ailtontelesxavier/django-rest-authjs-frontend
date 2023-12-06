@@ -1,11 +1,11 @@
-'use client'
+//'use client'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider, Button } from "@material-tailwind/react";
-import { SessionProvider } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import { checkIsPublicRoute } from '@/functions';
+
+import {SessionProvider} from "next-auth/react";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,8 +20,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const pathname = usePathname();
-  const isPublicPage = checkIsPublicRoute(pathname!);
+  
 
   // se o usuario estiver autenticado e acessar uma rota privada
   //ele conseguir visualizar a pagina!
@@ -31,7 +30,6 @@ export default function RootLayout({
   //{isPublicPage && children }
   //{!isPublicPage && <PrivateRoute>{children}</PrivateRoute> }
 
-  console.log(isPublicPage)
   return (
     <html lang="en">
       <body className={inter.className}>

@@ -1,22 +1,14 @@
-"use client"
-//'use server'
-
+"use client";
 import { Button, Input } from "@material-tailwind/react";
-import {SessionProvider, signIn, signOut, useSession} from "next-auth/react";
-
-import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server"
-import { useRouter } from "next/navigation";
-//import handleLogin from "@/functions/handleAuth";
-
 import { useState } from "react";
 import axios from "axios";
-import SignInButton from "@/components/SignInButton";
+
+import NextAuth from "next-auth";
+
 
 export default function Home() {
-  const router = useRouter();
-  //const {data: session, status} = useSession();
-
+  //const data = await getData()
+  NextAuth;
   const [response, setResponse] = useState("{}");
 
   const getUserDetails = async (useToken: boolean) => {
@@ -41,10 +33,6 @@ export default function Home() {
     
   };
 
-  function handleLogin() {
-
-    console.log("Auth token");
-  }
 
   return (
     <div
@@ -53,7 +41,6 @@ export default function Home() {
         backgroundImage: `url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')`,
       }}
     >
-      <SessionProvider session={useSession}>
       <div className="flex w-full h-screen justify-center items-center flex-col gap-3">
         <div className="relative z-10">
           <form action="#" className="w-96">
@@ -65,15 +52,13 @@ export default function Home() {
             </div>
           </form>
         </div>
-        <Button className="" onClick={() => signIn(undefined, {callbackUrl: "/interno/"})}>
+        <Button className="" onClick={() => getUserDetails(false)}>
           Button
         </Button>
-        <Button className="bg-green-200" onClick={() => null}>
+        <Button className="bg-green-200" onClick={() => handleLogin}>
           Login
         </Button>
-        <SignInButton />
       </div>
-      </SessionProvider>
     </div>
   );
 }
